@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/Jeyoung-Park/computer-license-server#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
