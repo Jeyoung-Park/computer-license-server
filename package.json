@@ -1,18 +1,24 @@
 {
   "name": "computer-license-server",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jeyoung-Park/computer-license-server.git"
+  },
+  "author": "Park Jeyoung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jeyoung-Park/computer-license-server/issues"
+  },
+  "homepage": "https://github.com/Jeyoung-Park/computer-license-server#readme",
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "nunjucks": "^3.2.3",
-    "pug": "2.0.0-beta11"
+    "express": "^4.17.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
