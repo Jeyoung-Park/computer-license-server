@@ -27,7 +27,7 @@ module.exports = class Description extends Sequelize.Model {
         timestamps: false,
         underscored: false,
         modelName: "Description",
-        tableName: "desriptions",
+        tableName: "descriptions",
         paranoid: true,
         charset: "utf8",
         collate: "utf8_general_ci",
