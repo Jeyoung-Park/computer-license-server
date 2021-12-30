@@ -46,7 +46,7 @@ app.use(
 );
 
 app.use("/", indexRouter);
-app.use("/description", descriptionRouter);
+app.use("/descriptions", descriptionRouter);
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
