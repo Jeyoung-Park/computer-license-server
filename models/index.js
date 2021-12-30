@@ -14,6 +14,8 @@ const sequelize = new Sequelize(
 db.sequelize = sequelize;
 
 db.Description = Description;
-Description.init(sequelize);
+Description?.init(sequelize);
+
+Description?.associate(db);
 
 module.exports = db;
