@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>맞는 말만 하는 컴활 봇</title>
+    <style>
+      table {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      table th,
+      table td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form id="user-form">
+        <fieldset>
+          <legend>데이터 등록</legend>
+          <div><input id="info" type="number" placeholder="유형" /></div>
+          <div><textarea id="content" placeholder="내용"></textarea></div>
+          <div>
+            <input id="is_like" type="checkbox" /><label for="is_like"
+              >좋아요 여부</label
+            >
+          </div>
+          <div><input id="keyword" type="text" placeholder="키워드" /></div>
+          <button type="submit">등록</button>
+        </fieldset>
+      </form>
+    </div>
+    <br />
+    <table id="description-list">
+      <thead>
+        <tr>
+          <th>아이디</th>
+          <th>유형</th>
+          <th>내용</th>
+          <th>좋아요 여부</th>
+          <th>키워드</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for description in descriptionts %}
+        <td>{{description.id}}</td>
+        <td>{{description.info}}</td>
+        <td>{{description.content}}</td>
+        <td>{{'O' if description.is_like else 'X'}}</td>
+        <td>{{description.keyword}}</td>
+      </tbody>
+    </table>
+    <br>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/register.js"></script
+  </body>
+</html>
