@@ -9,6 +9,7 @@ const nunjucks = require("nunjucks");
 dotenv.config();
 const indexRouter = require("./routes");
 const descriptionRouter = require("./routes/description");
+const { sequelize } = require("./models");
 
 const app = express();
 app.set("port", process.env.PORT || 3000);
@@ -17,6 +18,14 @@ nunjucks.configure("views", {
   express: app,
   watch: true,
 });
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log("db connection success");
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 app.use(morgan("dev"));
 app.use("/", express.static(path.join(__dirname, "public")));
@@ -37,7 +46,7 @@ app.use(
 );
 
 app.use("/", indexRouter);
-app.use("/description", descriptionRouter);
+app.use("/descriptions", descriptionRouter);
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
