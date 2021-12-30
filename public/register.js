@@ -2,7 +2,7 @@
 async function getDescriptions() {
   try {
     const res = await axios.get("/descriptions");
-    const descriptions = res.data;
+    const descriptions = res.data ?? [];
     console.log("descriptions,", descriptions);
     const tbody = document.querySelector("#description-list tbody");
     tbody.innerHTML = "";
