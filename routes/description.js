@@ -7,7 +7,7 @@ router
   .route("/")
   .get(async (req, res, next) => {
     try {
-      const descriptions = await Description?.findAll();
+      const descriptions = await Description.findAll();
       console.log('descriptions in /descriptions, ', descriptions)
       res.json(descriptions);
     } catch (err) {
@@ -17,7 +17,7 @@ router
   })
   .post(async (req, res, next) => {
     try {
-      const description = await Description?.create({
+      const description = await Description.create({
         info: req.body.info,
         content: req.body.content,
         is_like: req.body.is_like,

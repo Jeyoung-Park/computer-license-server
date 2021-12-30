@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const { Description } = require("./description");
+const Description = require("./description");
 
 const env = process.env.NODE_ENV || "development";
 const config = require("../config/config")[env];
@@ -14,8 +14,8 @@ const sequelize = new Sequelize(
 db.sequelize = sequelize;
 
 db.Description = Description;
-Description?.init(sequelize);
+Description.init(sequelize);
 
-Description?.associate(db);
+Description.associate(db);
 
 module.exports = db;
