@@ -13,7 +13,7 @@ async function getDescriptions() {
       td.textContent = description.id;
       row.appendChild(td);
       td = document.createElement("td");
-      td.textContent = description.info;
+      td.textContent = description.category_id;
       row.appendChild(td);
       td = document.createElement("td");
       td.textContent = description.content;
@@ -36,23 +36,23 @@ document
   .getElementById("description-form")
   .addEventListener("submit", async (e) => {
     e.preventDefault();
-    const info = e.target.info.value;
+    const category_id = e.target.category_id.value;
     const content = e.target.content.value;
     const is_like = e.target.is_like.checked;
     const keyword = e.target.keyword.value;
-    if (!info) {
+    if (!category_id) {
       return alert("유형을 입력해주세요");
     }
     if (!content) {
       return alert("내용을 입력해주세요");
     }
     try {
-      await axios.post("/descriptions", { info, content, is_like, keyword });
+      await axios.post("/descriptions", { category_id, content, is_like, keyword });
       getDescriptions();
     } catch (err) {
       console.error(err);
     }
-    e.target.info.value = "";
+    e.target.category_id.value = "";
     e.target.content.value = "";
     e.target.is_like.checked = false;
     e.target.keyword.value = "";
