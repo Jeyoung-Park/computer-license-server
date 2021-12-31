@@ -19,7 +19,7 @@
       <form id="description-form">
         <fieldset>
           <legend>데이터 등록</legend>
-          <div><input id="info" type="number" placeholder="유형" /></div>
+          <div><input id="category_id" type="number" placeholder="유형" /></div>
           <div><textarea id="content" placeholder="내용"></textarea></div>
           <div>
             <input id="is_like" type="checkbox" /><label for="is_like"
@@ -45,7 +45,7 @@
       <tbody>
         {% for description in descriptionts %}
         <td>{{description.id}}</td>
-        <td>{{description.info}}</td>
+        <td>{{description.category_id}}</td>
         <td>{{description.content}}</td>
         <td>{{'O' if description.is_like else 'X'}}</td>
         <td>{{description.keyword}}</td>

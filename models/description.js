@@ -4,7 +4,7 @@ module.exports = class Description extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        info: {
+        category_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
         },

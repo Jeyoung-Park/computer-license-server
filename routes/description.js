@@ -18,7 +18,7 @@ router
   .post(async (req, res, next) => {
     try {
       const description = await Description.create({
-        info: req.body.info,
+        category_id: req.body.category_id,
         content: req.body.content,
         is_like: req.body.is_like,
         keyword: req.body.keyword,
