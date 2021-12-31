@@ -19,7 +19,7 @@ async function getDescriptions() {
       td.textContent = description.content;
       row.appendChild(td);
       td = document.createElement("td");
-      td.textContent == description?.is_like ? "O" : "X";
+      td.textContent = description?.is_like ? "O" : "X";
       row.appendChild(td);
       td = document.createElement("td");
       td.textContent = description.keyword;
