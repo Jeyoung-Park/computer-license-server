@@ -10,7 +10,6 @@ steps:
     - 'HOST=${_HOST}'
     - 'SEQUELIZE_PASSWORD=${_SEQUELIZE_PASSWORD}'
     - 'USERNAME=${_USERNAME}'
-- name: node:16.13.1
-  entrypoint: npm
-  args: ["start"]
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["app", "deploy"]
 timeout: "1600s"
