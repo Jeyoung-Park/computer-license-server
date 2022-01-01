@@ -4,12 +4,10 @@ steps:
   args: ["install"]
 - name: node:16.13.1
   entrypoint: npm
-  args: ["run", "create-env"]
+  args: ["create-env", "start"]
   env:
     - 'COOKIE_SECRET=${_COOKIE_SECRET}'
     - 'HOST=${_HOST}'
     - 'SEQUELIZE_PASSWORD=${_SEQUELIZE_PASSWORD}'
     - 'USERNAME=${_USERNAME}'
-- name: "gcr.io/cloud-builders/gcloud"
-  args: ["app", "deploy"]
 timeout: "1600s"
