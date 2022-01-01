@@ -40,11 +40,11 @@ if (process.env.NODE_ENV === "production") {
 app.use("/", express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser(cookiesecret));
+app.use(cookieParser("cookiesecret"));
 const sessionOption = {
   resave: false,
   saveUninitialized: false,
-  secret: cookiesecret,
+  secret: "cookiesecret",
   cookie: {
     httpOnly: true,
     secure: false,
