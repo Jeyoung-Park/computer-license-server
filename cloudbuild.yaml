@@ -6,10 +6,10 @@ steps:
   entrypoint: npm
   args: ["run", "create-env"]
   env:
-    - 'COOKIE_SECRET=${_COOKIE_SECRET}'
-    - 'HOST=${_HOST}'
-    - 'SEQUELIZE_PASSWORD=${_SEQUELIZE_PASSWORD}'
-    - 'USERNAME=${_USERNAME}'
+    - "COOKIE_SECRET=$_COOKIE_SECRET"
+    - "HOST=$_HOST"
+    - "SEQUELIZE_PASSWORD=$_SEQUELIZE_PASSWORD"
+    - "USERNAME=$_USERNAME"
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
 timeout: "1600s"
