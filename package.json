@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production PORT=80 pm2 start server.js -i 0",
-    "dev": "nodemon server"
+    "dev": "nodemon server",
+    "create-env": "printenv > .env"
   },
   "repository": {
     "type": "git",
