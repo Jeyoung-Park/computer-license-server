@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production PORT=80 pm2 start server.js -i 0",
+    "start": "NODE_ENV=production PORT=80 pm2 start app.js -i 0",
     "dev": "nodemon server",
     "create-env": "printenv > .env"
   },
