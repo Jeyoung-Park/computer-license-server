@@ -1,9 +1,9 @@
 steps: 
 - name: 'gcr.io/cloud-builders/npm'
-  entrypoint: node
+  entrypoint: npm
   args: ["install"]
 - name: 'gcr.io/cloud-builders/npm'
-  entrypoint: node
+  entrypoint: npm
   args: ["run", "create-env"]
   env:
     - 'COOKIE_SECRET=${_COOKIE_SECRET}'
@@ -12,4 +12,4 @@ steps:
     - 'USERNAME=${_USERNAME}'
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
-timeout: "1600s"
+timeout: "1600s
