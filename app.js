@@ -6,6 +6,8 @@ const dotenv = require("dotenv");
 const path = require("path");
 const nunjucks = require("nunjucks");
 const logger = require("./utils/logger");
+const helmet = require("helmet");
+const hpp = require("hpp");
 
 dotenv.config();
 const indexRouter = require("./routes");
@@ -30,6 +32,8 @@ sequelize
 
 if (process.env.NODE_ENV === "production") {
   app.use(morgan("combined"));
+  app.use(helmet());
+  app.use(hpp({ contentSecurityPolicy: false }));
 } else {
   app.use(morgan("dev"));
 }
