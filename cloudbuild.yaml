@@ -4,10 +4,13 @@ steps:
   args: ["install"]
 - name: node:16.13.1
   entrypoint: npm
-  args: ["create-env", "start"]
+  args: ["run", "create-env"]
   env:
     - 'COOKIE_SECRET=${_COOKIE_SECRET}'
     - 'HOST=${_HOST}'
     - 'SEQUELIZE_PASSWORD=${_SEQUELIZE_PASSWORD}'
     - 'USERNAME=${_USERNAME}'
+- name: node:16.13.1
+  entrypoint: npm
+  args: ["start"]
 timeout: "1600s"
