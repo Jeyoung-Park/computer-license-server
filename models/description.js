@@ -35,8 +35,9 @@ module.exports = class Description extends Sequelize.Model {
     );
   }
   static associate(db) {
-    db.Description.belongsToMany(db.Category, {
-      through: "DescriptionCategory",
+    db.Description.belongsTo(db.Category, {
+      foreignKey: "category_id",
+      targetKey: "id",
     });
   }
 };

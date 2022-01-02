@@ -1,5 +1,5 @@
 const express = require("express");
-const { Description } = require("../models");
+const { Description, Category } = require("../models");
 
 const router = express.Router();
 
@@ -7,7 +7,9 @@ router
   .route("/")
   .get(async (req, res, next) => {
     try {
-      const descriptions = await Description.findAll();
+      const descriptions = await Description.findAll({
+        include:Category,
+      });
       console.log('descriptions in /descriptions, ', descriptions)
       res.json(descriptions);
     } catch (err) {
