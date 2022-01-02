@@ -13,4 +13,16 @@ router.route("/").get(async (req, res, next) => {
   }
 });
 
+router.route("/:id").get(async (req, res, next) => {
+  try {
+    const category = await Category.findOne({
+      where: { id: req.params.id },
+    });
+    res.status(201).json(category);
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+});
+
 module.exports = router;
