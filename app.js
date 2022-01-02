@@ -12,6 +12,7 @@ const hpp = require("hpp");
 dotenv.config();
 const indexRouter = require("./routes");
 const descriptionRouter = require("./routes/description");
+const categoryRouter = require("./routes/category");
 const { sequelize } = require("./models");
 
 const app = express();
@@ -57,6 +58,7 @@ app.use(session(sessionOption));
 
 app.use("/", indexRouter);
 app.use("/descriptions", descriptionRouter);
+app.use("/categories", categoryRouter);
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
