@@ -8,9 +8,9 @@ router
   .get(async (req, res, next) => {
     try {
       const descriptions = await Description.findAll({
-        include:Category,
+        include: Category,
       });
-      console.log('descriptions in /descriptions, ', descriptions)
+      console.log("descriptions in /descriptions, ", descriptions);
       res.json(descriptions);
     } catch (err) {
       console.error(err);
@@ -32,5 +32,18 @@ router
       next(err);
     }
   });
+
+router.route("/:id").get(async (req, res, next) => {
+  try {
+    const descriptions = await Description.findOne({
+      include: Category,
+      where: { id: req.params.id },
+    });
+    res.status(201).json(descriptions);
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+});
 
 module.exports = router;
