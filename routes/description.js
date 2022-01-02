@@ -33,17 +33,30 @@ router
     }
   });
 
-router.route("/:id").get(async (req, res, next) => {
-  try {
-    const descriptions = await Description.findOne({
-      include: Category,
-      where: { id: req.params.id },
-    });
-    res.status(201).json(descriptions);
-  } catch (err) {
-    console.error(err);
-    next(err);
-  }
-});
+router
+  .route("/:id")
+  .get(async (req, res, next) => {
+    try {
+      const descriptions = await Description.findOne({
+        include: Category,
+        where: { id: req.params.id },
+      });
+      res.status(201).json(descriptions);
+    } catch (err) {
+      console.error(err);
+      next(err);
+    }
+  })
+  .delete(async (req, res, next) => {
+    try {
+      const descriptions = await Description.destroy({
+        where: { id: req.params.id },
+      });
+      res.status(201).json(descriptions);
+    } catch (err) {
+      console.error(err);
+      next(err);
+    }
+  });
 
 module.exports = router;
