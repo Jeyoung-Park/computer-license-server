@@ -47,6 +47,26 @@ router
       next(err);
     }
   })
+  .patch(async (req, res, next) => {
+    try {
+      const { category_id, content, is_like, keyword } = req.body;
+      const descriptions = await Description.update(
+        {
+          category_id,
+          content,
+          is_like,
+          keyword,
+        },
+        {
+          where: { id: req.params.id },
+        }
+      );
+      res.status(201).json(descriptions);
+    } catch (err) {
+      console.error(err);
+      next(err);
+    }
+  })
   .delete(async (req, res, next) => {
     try {
       const descriptions = await Description.destroy({
