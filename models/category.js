@@ -25,5 +25,9 @@ module.exports = class Category extends Sequelize.Model {
     );
   }
 
-  static associate(db) {}
+  static associate(db) {
+    db.Category.belongsToMany(db.Description, {
+      through: "DescriptionCategory",
+    });
+  }
 };
