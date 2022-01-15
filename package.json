@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
+    "coverage": "jest --coverage",
     "start": "NODE_ENV=production PORT=80 pm2 start app.js -i 0",
     "dev": "nodemon server",
     "create-env": "printenv > .env"
