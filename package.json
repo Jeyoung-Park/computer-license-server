@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "start": "NODE_ENV=production PORT=80 pm2 start app.js -i 0",
     "dev": "nodemon server",
     "create-env": "printenv > .env"
@@ -35,6 +36,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
+    "jest": "^27.4.7",
     "nodemon": "^2.0.15"
   }
 }
