@@ -21,8 +21,8 @@ exports.postDescription = async (req, res, next) => {
       is_like: req.body.is_like,
       keyword: req.body.keyword,
     });
-    console.log("description post, ", description);
-    res.status(201).json(description);
+    // res.status(201).json(description);
+    res.send("success");
   } catch (err) {
     console.error(err);
     next(err);
